@@ -8,6 +8,7 @@ const fs_1 = __importDefault(require("fs"));
 // import { dateStringTODate } from "./utils";
 // import { MatchResult } from "./MatchResult";
 //TYPE ASSERTION
+//T means type of data
 class CsvFileReader {
     constructor(fileName) {
         this.fileName = fileName;
