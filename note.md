@@ -35,3 +35,19 @@ Type assertion in TypeScript is a mechanism by which you can explicitly specify 
 ```ts
   row[5] as MatchResult,
 ```
+
+**GENERICS**
+
+- Generics in TypeScript provide a way to create reusable components that can work with a variety of data types while maintaining type safety. They allow you to define a function, class, or interface with a placeholder type that gets specified when the component is used. This makes your code more flexible and easier to maintain without sacrificing the benefits of strong type checking.
+
+```ts
+class HoldAnything<TypeOfData> {
+  data: TypeOFData;
+}
+
+const holdNumber = new HoldAnything<number>();
+holdNumber.data = 123;
+
+const holdString = new HoldAnything<string>();
+holdString.data = "sdasj";
+```
