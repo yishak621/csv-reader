@@ -1,14 +1,9 @@
 import fs from "fs";
-// import { dateStringTODate } from "./utils";
-// import { MatchResult } from "./MatchResult";
 
 //TYPE ASSERTION
-//T means type of data
-export abstract class CsvFileReader<T> {
-  data: T[] = []; //this means that we are expecting an array of arrays[2D array ,each rows inside] that have the data type as same as T
+export class CsvFileReader {
+  data: string[][] = []; //this means that we are expecting an array of arrays[2D array ,each rows inside] that have the data type as same as MAtchdata
   constructor(public fileName: string) {}
-  //promise
-  abstract mapRow(row: string[]): T;
 
   read(): void {
     this.data = fs
@@ -19,6 +14,16 @@ export abstract class CsvFileReader<T> {
       .map((row: string): string[] => {
         return row.split(",");
       })
-      .map(this.mapRow);
+      .map((row: string[]): MatchData => {
+        return [
+          dateStringTODate(row[0]),
+          row[1],
+          row[2],
+          parseInt(row[3]),
+          parseInt(row[4]),
+          row[5] as MatchResult,
+          row[6],
+        ];
+      });
   }
 }

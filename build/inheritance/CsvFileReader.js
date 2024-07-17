@@ -5,11 +5,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CsvFileReader = void 0;
 const fs_1 = __importDefault(require("fs"));
+// import { dateStringTODate } from "./utils";
+// import { MatchResult } from "./MatchResult";
 //TYPE ASSERTION
+//T means type of data
 class CsvFileReader {
     constructor(fileName) {
         this.fileName = fileName;
-        this.data = []; //this means that we are expecting an array of arrays[2D array ,each rows inside] that have the data type as same as MAtchdata
+        this.data = []; //this means that we are expecting an array of arrays[2D array ,each rows inside] that have the data type as same as T
     }
     read() {
         this.data = fs_1.default
@@ -20,17 +23,7 @@ class CsvFileReader {
             .map((row) => {
             return row.split(",");
         })
-            .map((row) => {
-            return [
-                dateStringTODate(row[0]),
-                row[1],
-                row[2],
-                parseInt(row[3]),
-                parseInt(row[4]),
-                row[5],
-                row[6],
-            ];
-        });
+            .map(this.mapRow);
     }
 }
 exports.CsvFileReader = CsvFileReader;
