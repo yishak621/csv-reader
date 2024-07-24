@@ -1,6 +1,6 @@
 import { CsvFileReader } from "./CsvFileReader";
-import { MatchResult } from "./MatchResult";
-import { dateStringTODate } from "./utils";
+import { MatchResult } from "../MatchResult";
+import { dateStringTODate } from "../utils";
 
 //declaring a TUPLE []
 type MatchData = [Date, string, string, number, number, MatchResult, string];

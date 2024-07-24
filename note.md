@@ -51,3 +51,6 @@ holdNumber.data = 123;
 const holdString = new HoldAnything<string>();
 holdString.data = "sdasj";
 ```
+
+_INHERITANCE_VS_COMPOSITION_
+_DELEGATOR_
